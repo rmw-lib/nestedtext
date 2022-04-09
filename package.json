@@ -21,7 +21,7 @@
   "license": "AGPL-3.0",
   "type": "module",
   "scripts": {
-    "prepare": "rm -rf lib && mkdir -p lib && rsync -av --include='*/' --include='*.js' --include='*.mjs' --exclude=* src/ lib && npx coffee --compile --output lib src/ && babel --plugins @babel/plugin-transform-modules-commonjs lib/*.js -d lib --out-file-extension .cjs && npx md-include .markdown.json"
+    "prepare": "rm -rf lib && mkdir -p lib && rsync -av --include='*/' --exclude='*.coffee' src/ lib && npx coffee --compile --output lib src/ && babel --plugins @babel/plugin-transform-modules-commonjs lib/*.js -d lib --out-file-extension .cjs && npx md-include .markdown.json"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

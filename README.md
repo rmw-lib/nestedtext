@@ -36,6 +36,13 @@ import nestedtext from '@rmw/nestedtext'
 console.log await nestedtext()
 ```
 
+
+## 备忘
+
+* 从这里获取 wasm_exec
+https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js
+
+
 ### 关于
 
 本项目隶属于**人民网络([rmw.link](//rmw.link))** 代码计划。
