@@ -1,9 +1,16 @@
 #!/usr/bin/env coffee
+import thisdir from '@rmw/thisdir'
+import fs from 'fs'
+import {dirname,join} from 'path'
 
-export default main = =>
-  return 1
-
-if process.argv[1] == decodeURI (new URL(import.meta.url)).pathname
-  console.log await main()
-  process.exit()
-
+wasmBuffer = fs.readFileSync(join dirname(thisdir(import.meta)),'nestedtext.wasm')
+mod = await WebAssembly.instantiate(wasmBuffer)
+console.log mod
+###
+.then(wasmModule => {
+  // Exported function live under instance.exports
+  const add = wasmModule.instance.exports.add;
+  const sum = add(5, 6);
+  console.log(sum); // Outputs: 11
+});
+###

@@ -7,6 +7,7 @@ cd $_DIR
 set -ex
 
 npm run prepare
+./build.sh
 
 version=$(cat package.json|jq -r '.version')
 
