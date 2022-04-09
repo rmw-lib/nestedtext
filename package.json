@@ -13,8 +13,7 @@
     }
   },
   "files": [
-    "lib/*",
-    "lib.wasm"
+    "lib/*"
   ],
   "main": "index.js",
   "author": "gcxfd <i@rmw.link>",

@@ -17,7 +17,7 @@ wasm = await WebAssembly.compile(
   fs.readFileSync(join thisdir(import.meta),'lib.wasm')
 )
 
-run = (txt)=>
+export ntDecode = (txt)=>
   go.run await WebAssembly.instantiate(
     wasm
     go.importObject
@@ -26,15 +26,3 @@ run = (txt)=>
   if r == -1
     throw Error("nestext decode error :\n"+txt)
   return r
-
-console.log await run """a : 1"""
-console.log await run """a : 2 """
-###
-console.log mod
-.then(wasmModule => {
-  // Exported function live under instance.exports
-  const add = wasmModule.instance.exports.add;
-  const sum = add(5, 6);
-  console.log(sum); // Outputs: 11
-});
-###

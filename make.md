@@ -2,6 +2,8 @@
 
 ## English Readme
 
+use https://github.com/npillmayer/nestext wasm for nestedtext decode in nodejs ( es module )
+
 ###  Install
 
 ```yarn add @rmw/nestedtext ``` or ``` npm install @rmw/nestedtext```
@@ -10,6 +12,12 @@
 
 ```coffee
 #include ./test/index.coffee
+```
+
+output is :
+
+```json5
+#include ./test.out.json5
 ```
 
 ## 中文说明
@@ -24,13 +32,11 @@
 #include ./test/index.coffee
 ```
 
-
 ## 备忘
 
 * 从这里获取 wasm_exec
 
 cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
-
 
 ### 关于
 
