@@ -18,6 +18,29 @@ wasm = await WebAssembly.compile(
 )
 
 export ntDecode = (txt)=>
+  txt_li = txt.split("\n")
+  indent = 0
+  for line,pos in txt_li
+    i = line.trimEnd()
+    if i
+      if i.startsWith '#'
+        continue
+      indent = line.length - line.trimStart().length
+      break
+
+  li = []
+  for i from txt_li
+    i = i.trimEnd()
+    if indent
+      i = i[...indent].trimStart() + i[indent..]
+    if i
+      li.push i
+
+  txt = li.join('\n')
+
+  if not txt
+    return null
+
   go.run await WebAssembly.instantiate(
     wasm
     go.importObject
