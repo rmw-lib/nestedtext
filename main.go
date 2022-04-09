@@ -1,9 +1,28 @@
-package nestedtext
-//import "github.com/npillmayer/nestext"
+package main
 
-import "syscall/js"
+import (
+  "fmt"
+  "syscall/js"
+  "strings"
+  "github.com/npillmayer/nestext"
+)
+
+func add(this js.Value, args []js.Value) interface{} {
+  if len(args) != 1 {
+    return js.ValueOf(nil)
+  }
+  input := args[0].String()
+  result, err := nestext.Parse(strings.NewReader(input))
+  if err != nil {
+    fmt.Errorf("%v", err);
+    return js.ValueOf(-1)
+  }
+
+  return js.ValueOf(result)
+}
 
 func main() {
-  alert := js.Global().Get("alert")
-  alert.Invoke("Hello World!")
+  done := make(chan struct{}, 0)
+  js.Global().Set("addFun", js.FuncOf(add))
+  <-done
 }

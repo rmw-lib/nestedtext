@@ -40,7 +40,8 @@ console.log await nestedtext()
 ## 备忘
 
 * 从这里获取 wasm_exec
-https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js
+
+cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
 
 
 ### 关于

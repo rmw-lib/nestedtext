@@ -13,13 +13,22 @@ Object.defineProperty(globalThis, 'crypto', {
 await import('./wasm_exec.js')
 
 go = new Go
-
-mod = await WebAssembly.instantiate(
+wasm = await WebAssembly.compile(
   fs.readFileSync(join thisdir(import.meta),'lib.wasm')
-  go.importObject
 )
 
+run = (txt)=>
+  go.run await WebAssembly.instantiate(
+    wasm
+    go.importObject
+  )
+  r = addFun(txt)
+  if r == -1
+    throw Error("nestext decode error :\n"+txt)
+  return r
 
+console.log await run """a : 1"""
+console.log await run """a : 2 """
 ###
 console.log mod
 .then(wasmModule => {
