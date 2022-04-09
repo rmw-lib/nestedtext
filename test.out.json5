@@ -1,10 +1,10 @@
 {
   president: {
-    email: 'KateMcD@aol.com',
-    'additional roles': [ 'board member' ],
     name: 'Katheryn McDaniel',
     address: '138 Almond Street\nTopeka, Kansas 20697',
-    phone: { cell: '1-210-555-5297', home: '1-210-555-8470' }
+    phone: { cell: '1-210-555-5297', home: '1-210-555-8470' },
+    email: 'KateMcD@aol.com',
+    'additional roles': [ 'board member' ]
   },
   'vice president': {
     name: 'Margaret Hodge',
