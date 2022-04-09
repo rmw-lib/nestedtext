@@ -3,8 +3,9 @@ import thisdir from '@rmw/thisdir'
 import fs from 'fs'
 import {dirname,join} from 'path'
 
-wasmBuffer = fs.readFileSync(join dirname(thisdir(import.meta)),'nestedtext.wasm')
-mod = await WebAssembly.instantiate(wasmBuffer)
+mod = await WebAssembly.instantiate(
+  fs.readFileSync(join dirname(thisdir(import.meta)),'lib.wasm')
+)
 console.log mod
 ###
 .then(wasmModule => {

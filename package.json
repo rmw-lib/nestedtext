@@ -14,7 +14,7 @@
   },
   "files": [
     "lib/*",
-    "nestedtext.wasm"
+    "lib.wasm"
   ],
   "main": "index.js",
   "author": "gcxfd <i@rmw.link>",
